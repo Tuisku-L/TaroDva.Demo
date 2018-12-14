@@ -1,3 +1,10 @@
+/*
+ * @Author: Tuisku
+ * @Date: 2018-12-03 10:27:38
+ * @LastEditors: Tuisku
+ * @LastEditTime: 2018-12-14 09:37:03
+ * @Description: dva帮助类，此文件请勿修改
+ */
 import Taro from '@tarojs/taro';
 import { create } from 'dva-core';
 import { createLogger } from 'redux-logger';

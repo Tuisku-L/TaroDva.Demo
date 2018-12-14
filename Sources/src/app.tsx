@@ -1,3 +1,11 @@
+/*
+ * @Author: Tuisku
+ * @Date: 2018-12-03 06:52:43
+ * @LastEditors: Tuisku
+ * @LastEditTime: 2018-12-14 09:50:30
+ * @Description: App入口文件
+ */
+
 import '@tarojs/async-await';
 import Taro, { Config } from '@tarojs/taro';
 
@@ -9,6 +17,8 @@ import { Provider } from '@tarojs/redux';
 
 import './app.less'
 
+
+// H5开发模式下取消以下注释 👇
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
 //   require('nerv-devtools')
 // }
@@ -21,6 +31,7 @@ const dvaApp = dva.createApp({
 const store = dvaApp.getStore();
 
 class App extends Taro.Component {
+  // 对应微信小程序 app.json 中的设置项
   config: Config = {
     pages: [
       'Views/Index/Index'
@@ -53,7 +64,7 @@ class App extends Taro.Component {
         }
       ]
     }
-  }
+  };
 
   render(): JSX.Element {
     return (

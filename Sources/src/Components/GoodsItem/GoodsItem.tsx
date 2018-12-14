@@ -1,3 +1,11 @@
+/*
+ * @Author: Tuisku
+ * @Date: 2018-12-03 13:47:28
+ * @LastEditors: Tuisku
+ * @LastEditTime: 2018-12-14 09:50:11
+ * @Description: 商品列表组件
+ */
+
 import Taro from '@tarojs/taro';
 
 import { View, Image } from '@tarojs/components';
@@ -12,6 +20,9 @@ interface GoodsItemState{
 
 }
 
+// 注意！不要在组件中使用connect，不要将组件和Model连接起来，组件所需要的网络请求均需提升到父页面去执行
+// 即：父页面将网络请求的函数作为Props传递到子组件，子组件调用即可
+// 所以直接在头顶上export整个类即可
 export default class GoodsItem extends Taro.Component<GoodsItemProps,GoodsItemState>  {
     constructor(props: any) {
         super(props);

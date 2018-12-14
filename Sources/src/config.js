@@ -1,10 +1,11 @@
 /*
- * @Author: Tuisku 
- * @Description: 全局配置
- * @Date: 2018-04-18 14:19:46 
- * @Last Modified by: Tuisku
- * @Last Modified time: 2018-05-25 16:49:01
+ * @Author: Tuisku
+ * @Date: 2018-12-03 06:52:43
+ * @LastEditors: Tuisku
+ * @LastEditTime: 2018-12-14 09:13:06
+ * @Description: 全局配置，设置后端路径和cookies路径等
  */
+
 
 let config = {
     env: {
