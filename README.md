@@ -38,6 +38,7 @@
     │   ├── config.js               // 项目配置文件
     │   └── index.html
     ├── package.json                // 项目信息和依赖
+    ├── GenerateTemplate.js         // 页面模块生成器
     └── tsconfig.json               // TypeScript配置文件
 
 ## 如何运行
@@ -79,5 +80,39 @@ $ npm run dev:weapp
 或
 $ yarn run dev:weapp
 ```
+
+## 添加新页面或新组件
+
+使用tpl命令即可一键生成页面或组件的框架，命令使用方式如下：
+
+> tpl [moduleName] [generateType(c | p)]
+
+例如：
+
+- 添加一个购物车页面
+
+```
+$ yarn run tpl Cart p
+或
+$ npm run tpl Cart p
+```
+
+- 添加一个商品列表项组件
+
+```
+$ yarn run tpl GoodsListItem c
+或
+$ npm run tpl GoodsListItem c
+```
+
+命令执行完毕后，将会在对应文件夹下生成相关文件。
+
+- 页面生成在`./src/Views`文件夹下，包括页面文件、Model文件、Service文件和less样式表文件。同时，还会在`./src/Models/Index.tsx`中自动添加此页面的Model文件导出项。
+
+- 组件生成在`./src/Components`文件夹下，包括组建文件和less样式表文件。
+
+最后，如果你生成的是页面文件，请到`./src/app.tsx`文件的pages配置项中添加这个页面，否则这个页面将不会被添加到路由中。
+
+---
 
 如果以上操作都没有问题，那么 Taro 将会在 dist 文件夹下输出编译好的微信小程序源代码，使用微信开发者工具定位到 dist 目录下进行预览即可，所有改动所见即所得。
