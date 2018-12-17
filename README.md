@@ -109,7 +109,7 @@ $ npm run tpl GoodsListItem c
 
 - 页面生成在`./src/Views`文件夹下，包括页面文件、Model文件、Service文件和less样式表文件。同时，还会在`./src/Models/Index.tsx`中自动添加此页面的Model文件导出项。
 
-- 组件生成在`./src/Components`文件夹下，包括组建文件和less样式表文件。
+- 组件生成在`./src/Components`文件夹下，包括组件文件和less样式表文件。
 
 最后，如果你生成的是页面文件，请到`./src/app.tsx`文件的pages配置项中添加这个页面，否则这个页面将不会被添加到路由中。
 
