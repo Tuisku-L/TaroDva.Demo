@@ -139,11 +139,8 @@ if (genType === "c") {
 console.log(`模版${dirName}已创建,请手动至app.tsx文件添加页面路径`);
 
 function titleCase(str) {
-    const array = str.toLowerCase().split(' ');
-    for (let i = 0; i < array.length; i++) {
-        array[i] = array[i][0].toUpperCase() + array[i].substring(1, array[i].length);
-    }
-    const string = array.join(' ');
+    const first = str[0];
+    const string = first.toUpperCase() + str.substr(1);
     return string;
 }
 
