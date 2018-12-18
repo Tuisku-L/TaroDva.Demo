@@ -106,10 +106,24 @@ export {
 
 `;
 
+const parentDir = titleCase((process.argv[4]));
+let boo = false;
+if (parentDir) {
+    boo = true;
+}
+
 // 创建页面
 if (genType === "p") {
-    fs.mkdirSync(`./src/Views/${dirName}`);
-    process.chdir(`./src/Views/${dirName}`);
+    if (boo) {
+        if (!fs.existsSync(`./src/Views/${parentDir}`)) {
+            fs.mkdirSync(`./src/Views/${parentDir}`);
+        }
+        fs.mkdirSync(`./src/Views/${parentDir}/${dirName}`);
+        process.chdir(`./src/Views/${parentDir}/${dirName}`);
+    } else {
+        fs.mkdirSync(`./src/Views/${dirName}`);
+        process.chdir(`./src/Views/${dirName}`);
+    }
 
     fs.writeFileSync('Index.tsx', pageTpl);
     fs.writeFileSync('Index.less', '');
@@ -120,8 +134,10 @@ if (genType === "p") {
     process.chdir(__dirname);
     process.chdir("./src/Models");
 
+    const filePath = boo ? `${parentDir}/${dirName}` : `${dirName}`;
+
     let modelInfo = fs.readFileSync("Index.ts", "utf-8");
-    modelInfo = `import ${dirName}Model from '../Views/${dirName}/Model';\n` + modelInfo;
+    modelInfo = `import ${dirName}Model from '../Views/${filePath}/Model';\n` + modelInfo;
     modelInfo = insertStr(modelInfo, `\n    ${dirName}Model,`, modelInfo.indexOf('[') + 1);
 
     fs.writeFileSync('Index.ts', modelInfo);
@@ -129,8 +145,16 @@ if (genType === "p") {
 
 // 创建组件
 if (genType === "c") {
-    fs.mkdirSync(`./src/Components/${dirName}`);
-    process.chdir(`./src/Components/${dirName}`);
+    if (boo) {
+        if (!fs.existsSync(`./src/Components/${parentDir}`)) {
+            fs.mkdirSync(`./src/Components/${parentDir}`);
+        }
+        fs.mkdirSync(`./src/Components/${parentDir}/${dirName}`);
+        process.chdir(`./src/Components/${parentDir}/${dirName}`);
+    } else {
+        fs.mkdirSync(`./src/Components/${dirName}`);
+        process.chdir(`./src/Components/${dirName}`);
+    }
 
     fs.writeFileSync(`${dirName}.tsx`, compTpl);
     fs.writeFileSync(`${dirName}.less`, '');

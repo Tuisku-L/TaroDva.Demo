@@ -85,7 +85,7 @@ $ yarn run dev:weapp
 
 使用tpl命令即可一键生成页面或组件的框架，命令使用方式如下：
 
-> tpl [moduleName] [generateType(c | p)]
+> tpl [moduleName] [generateType(c | p)] [rootDir]
 
 例如：
 
@@ -103,6 +103,15 @@ $ npm run tpl Cart p
 $ yarn run tpl GoodsListItem c
 或
 $ npm run tpl GoodsListItem c
+```
+
+- 添加一个订单大分类的页面“提交订单”页面（/Views/Order/SubmitOrder）
+> 命令最后一个参数的目的是将页面进行分类，而无需在Views文件夹中新建过多的文件夹造成混乱。比如“`提交订单（SubmitOrder）`”和“`确认订单（ConfirmOrder）`”都属于“`订单（Order）`”分类，我们在Views中就会新建一个Order文件夹，将这两个页面放置于此文件夹（`/Views/Order/SubmitOrder`和`/Views/Order/ConfirmOrder`），由此使项目结构更合理也更易于代码阅读和维护。
+
+```
+$ yarn run tpl SubmitOrder p Order
+或
+$ npm run tpl SubmitOrder p Order
 ```
 
 命令执行完毕后，将会在对应文件夹下生成相关文件。
