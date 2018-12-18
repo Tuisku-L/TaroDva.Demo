@@ -106,9 +106,10 @@ export {
 
 `;
 
-const parentDir = titleCase((process.argv[4]));
+let parentDir = process.argv[4];
 let boo = false;
 if (parentDir) {
+    parentDir = titleCase(parentDir);
     boo = true;
 }
 
