@@ -31,7 +31,6 @@ const dvaApp = dva.createApp({
 const store = dvaApp.getStore();
 
 class App extends Taro.Component {
-  // 对应微信小程序 app.json 中的设置项
   config: Config = {
     pages: [
       'Views/Index/Index'
@@ -39,7 +38,7 @@ class App extends Taro.Component {
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: '天医星 - 项目框架',
+      navigationBarTitleText: 'TaroDva.Demo',
       navigationBarTextStyle: 'black'
     },
     tabBar: {

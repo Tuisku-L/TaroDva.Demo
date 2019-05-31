@@ -15,12 +15,10 @@ let store;
 let dispatch;
 
 function createApp(opt) {
-  // redux日志
   opt.onAction = [createLogger()];
   app = create(opt);
   app.use(createLoading({}));
 
-  // 适配支付宝小程序
   if (Taro.getEnv() === Taro.ENV_TYPE.ALIPAY) {
     global = {};
   }

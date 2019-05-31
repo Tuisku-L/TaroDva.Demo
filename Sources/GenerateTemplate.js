@@ -32,7 +32,7 @@ class Index extends Taro.Component<IndexProps, IndexState> {
         navigationBarTitleText: '${dirName}'
     }
 
-    constructor(props: any) {
+    constructor(props: IndexProps) {
         super(props);
         this.state = {
         };
@@ -63,7 +63,7 @@ interface ${dirName}State {
 }
 
 export default class ${dirName} extends Taro.Component<${dirName}Props, ${dirName}State> {
-    constructor(props: any) {
+    constructor(props: ${dirName}Props) {
         super(props);
         this.state = {
         };
@@ -89,7 +89,7 @@ export default {
 
     },
     reducers: {
-        setState(state: any, { payload }: any): void {
+        setState(state, { payload }): void {
             return { ...state, ...payload };
         }
     }
